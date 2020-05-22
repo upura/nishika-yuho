@@ -1,0 +1,119 @@
+cols_definition:
+    id_col: 'edinet_code'
+    target_col: 'market_cap_indexed'
+    numerical_col: [
+        'fiscal_year',
+        'number_of_shares_issued',
+        'net_sales',
+        'operating_income',
+        'ordinary_income',
+        'profit',
+        'total_assets',
+        'net_assets',
+        'net_worth',
+        'dividend',
+        'annual_dividends_per_share',
+        'profit_per_share',
+        'net_assets_per_share',
+        'net_assets_for_preferred_shares',
+        'dividends_for_preferred_shares',
+        'average_total_assets',
+        'average_net_assets',
+        'average_net_worth',
+        'average_dividend',
+        'roe',
+        'roa',
+        'operating_income_on_sales',
+        'ordinary_income_on_sales',
+        'capital_ratio',
+        'dividend_payout_ratio',
+        'doe',
+        'open',
+        'high',
+        'low',
+        'close',
+        'average',
+        'market_cap',
+        'PBR',
+        'PER'
+    ]
+    categorical_col: [
+        'sec_code',
+        'fiscal_period',
+        'consolidated_flag'
+    ]
+aggregation:
+    groupby_dict: [
+        {
+            'key': ['sec_code'],
+            'var': ['close_minus_open',
+                    'average',
+                    'high',
+                    'open',
+                    'PBR',
+                    'low',
+                    'net_assets_per_share',
+                    'close',
+                    'operating_income',
+                    'market_cap',
+                    'PER'],
+            'agg': ['mean', 'sum', 'median', 'min', 'max', 'var', 'std']
+        },
+        {
+            'key': ['fiscal_period'],
+            'var': ['close_minus_open',
+                    'average',
+                    'high',
+                    'open',
+                    'PBR',
+                    'low',
+                    'net_assets_per_share',
+                    'close',
+                    'operating_income',
+                    'market_cap',
+                    'PER'],
+            'agg': ['mean', 'sum', 'median', 'min', 'max', 'var', 'std']
+        },
+        {
+            'key': ['consolidated_flag'],
+            'var': ['close_minus_open',
+                    'average',
+                    'high',
+                    'open',
+                    'PBR',
+                    'low',
+                    'net_assets_per_share',
+                    'close',
+                    'operating_income',
+                    'market_cap',
+                    'PER'],
+            'agg': ['mean', 'sum', 'median', 'min', 'max', 'var', 'std']
+        },
+        {
+            'key': ['sec_code', 'consolidated_flag'],
+            'var': ['close_minus_open',
+                    'average',
+                    'high',
+                    'open',
+                    'PBR',
+                    'low',
+                    'net_assets_per_share',
+                    'close',
+                    'operating_income',
+                    'market_cap',
+                    'PER'],
+            'agg': ['mean', 'sum', 'median', 'min', 'max', 'var', 'std']
+        },
+    ]
+    nunique_dict: [
+        {
+            'key': ['sec_code'],
+            'var': ['fiscal_period'],
+            'agg': ['nunique']
+        },
+        {
+            'key': ['sec_code'],
+            'var': ['consolidated_flag'],
+            'agg': ['nunique']
+        },
+    ]

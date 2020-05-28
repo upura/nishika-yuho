@@ -1,6 +1,6 @@
 # Approach
 
-The 3rd place approach can be summarized as follows:
+The 2nd place approach can be summarized as follows:
 
 1. Create 1180 features only from financial information.
 2. Make 3 predictions by LightGBM[1] and CatBoost[2] with 5 cross-validation.
@@ -61,7 +61,7 @@ Table 2. The scores of final predictions by Netflix blending.
 
 | algorithm | public (rank) | private (rank) |
 | --- | --- | --- |
-| Netflix blending | 0.287934 (2nd) | 0.270650580305876 (3rd) |
+| Netflix blending | 0.287934 (2nd) | 0.270650580305876 (2nd) |
 
 ## Ref
 [1] https://github.com/microsoft/LightGBM  
